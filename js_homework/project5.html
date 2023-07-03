@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="project5_css.css">
+
+<script>
+    function myFunction() {
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }       
+      }
+    }
+
+
+
+    jQuery(function ($) {
+        $('.try').click(function () {
+            $(this).toggleClass('highlight')
+        })
+    })
+    jQuery(function ($) {
+        $('.filterBtn').click(function () {
+            $(this).toggleClass('tg')
+        })
+    })
+    $(document).ready(function(){
+        $("#f1").click(function(){
+            $("p:first").slideUp();
+        });
+        $("#f2").click(function(){
+            $(".p").slideDown();
+        });
+        $("#f3").click(function(){
+            $(".p2").slideToggle();
+        });
+        $("#f4").click(function(){
+            $(".p3").fadeOut();
+        });
+        $("#f5").click(function(){
+            $(".p3").fadeIn();
+        });
+        $("#f6").click(function(){
+            $("#div1").fadeToggle();
+            $("#div2").fadeToggle("slow");
+            $("#div3").fadeToggle(3000);
+        });
+        $("#f7").click(function(){
+            $(".p4").append("<b> => Appended text </b>");
+        });
+        $("#f8").click(function(){
+            $(".p5").prepend("<b>Prepended text <= </b>. ");
+        });
+        $("#f9").click(function(){
+            $(".p6").before("<p>Before Text</p>");
+        });
+        $("#f10").click(function(){
+            $(".p7").after("<p>Hello world!</p>");
+        });
+        $("#f11").click(function(){
+            $(".p8").css("color", "rgb(135,156,247)").slideUp(2000).slideDown(2000);
+        });
+        $("#f12").click(function(){
+            $("#panel").slideDown(5000);
+        });
+        $("#flip").click(function(){
+            $("#panel").stop();
+        });
+        $("#showOddRows").click(function(){
+            $("tr:even").hide();
+            $("tr:first").show();
+        });
+        $("#showEvenRows").click(function(){
+            $("tr:Odd").hide();
+           
+   
+        });
+        $("#showAllRows").click(function(){
+            $("tr:Odd").show();
+            $("tr:Even").show();    
+        });
+        $("#showLastRow").click(function(){
+            $("tr:Odd").hide();
+            $("tr:Even").hide();
+            $("tr:last").show();    
+            $("tr:first").show();
+        });
+        $("#showFirstRow").click(function(){
+            $("tr").hide();
+            $("tr:nth-child(1)").show();
+            $("tr:first").show();
+        });
+        $("#hideAllRows").click(function(){
+            $("tr").hide();
+            $("tr:first").show();
+        });
+        $("#f13").click(function(){
+            $(".box").animate({left: '250px'});
+        });
+        $("#childrenSelector").click(function() {
+            $("#myTable").children("tbody").css("background-color", "rgb(165, 212, 213)");
+        });
+        $("#adelSelector").click(function() {
+            $("#myTable th + td").css("font-weight", "bold");
+        });
+        $("#attributeSelectors").click(function() {
+       
+        $("td[colspan]").css("border", "2px solid blue");
+        
+        
+        $("td[colspan='2']").css("background-color", "lightgreen");
+        
+        
+        $("td[colspan^='1']").css("background-color", "lightblue");
+        
+        
+        $("td[colspan$='2']").css("background-color", "orange");
+        
+        
+        $("td[colspan*='a']").css("color", "purple");
+      });
+      
+
+    });
+    </script>
+
+</head>
+<body>
+
+<h2 style="font-family: Arial, Helvetica, sans-serif; text-align: center;">jQuery Methods Table</h2>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+<br>
+<br>
+<div class="btnDiv">
+    <input class="filterBtn" type="button" id="hideAllRows" value="Hide All Rows">
+    <input class="filterBtn" type="button" id="showAllRows" value="Show All Rows">
+    <input class="filterBtn" type="button" id="showOddRows" value="Show Odd Rows">
+    <input class="filterBtn" type="button" id="showEvenRows" value="Show Even Rows">
+    <input class="filterBtn" type="button" id="showFirstRow" value="Show First Row">
+    <input class="filterBtn" type="button" id="showLastRow" value="Show Last Row">
+    <input class="filterBtn" type="button" id="childrenSelector" value="Children selector">
+    <input class="filterBtn" type="button" id="adelSelector" value="Adjacent elements selector">
+    <input class="filterBtn" type="button" id="attributeSelectors" value="Attribute selectors">
+</div>
+<br>
+<br>
+<table id="myTable">
+  <thead class="header">
+    <th style="width:57%;">Method Name</th>
+    <th style="width:35%;">What does it do?</th>
+    <th style="width:8%;"> Try It</th>
+  </thead>
+  <tr>
+    <td><p class="p"><span style="font-weight: bold;">1. </span>slideUp() Method</p></td>
+    <td>Smoothly develops the element</td>
+    <td><input id="f1" onclick="changeColor('f1')" class="try" type="button" value="Try it!"></td>
+  </tr>
+  <tr>
+    <td><p class="p"><span style="font-weight: bold;">2. </span>slideDown() Method</p></td>
+    <td>Smoothly rolls up the component</td>
+    <td><input id="f2" onclick="changeColor('f2')" class="try" type="button" value="Try it!"></td>
+
+  </tr>
+  <tr>
+    <td><p class="p2"><span style="font-weight: bold;">3. </span>slideToggle() Method.</p></td>
+    <td>Smoothly rolls up or down the component</td>
+    <td><input id="f3" onclick="changeColor('f3')" class="try" type="button" value="Try it!"></td>
+
+  </tr>
+  <tr>
+    <td><p class="p3"><span style="font-weight: bold;">4. </span>fadeOut() Method</p></td>
+    <td>Seamlessly shows the element</td>
+    <td><input id="f4" onclick="changeColor('f4')" class="try" type="button" value="Try it!"></td>
+
+  </tr>
+  <tr>
+    <td><p class="p3"><span style="font-weight: bold;">5. </span>fadeIn() Method</p></td>
+    <td>Seamlessly hides the element</td>
+    <td><input id="f5" onclick="changeColor('f5')" class="try" type="button" value="Try it!"></td>
+
+  </tr>
+  <tr>
+    <td>
+        <div class="container">
+            <p><span style="font-weight: bold;">6. </span>fadeToggle() Method</p>
+            <div id="div1" style="width:60px;height:60px;background-color:rgb(137, 152, 235); margin-bottom: 5px; "></div>
+
+            <div id="div2" style="width:60px;height:60px;background-color:rgb(137, 228, 143); margin-bottom: 5px; "></div>
+
+            <div id="div3" style="width:60px;height:60px;background-color:rgb(83, 125, 103);"></div>
+        </div>
+    </td>
+    <td>Smoothly shows or hides the element</td>
+    <td><input id="f6" onclick="changeColor('f6')" class="try" type="button" value="Try it!"></td>
+
+  </tr>
+  <tr>
+    <td><p class="p4"><span style="font-weight: bold;">7. </span>append() Method</p></td>
+    <td>A complete parent is joining the end</td>
+    <td><input id="f7" onclick="changeColor('f7')" class="try" type="button" value="Try it!"></td>
+
+  </tr>
+  <tr>
+    <td><p class="p5"><span style="font-weight: bold;">8. </span>prepend() Method</p></td>
+    <td>Joining the Elementary parent</td>
+    <td><input id="f8" onclick="changeColor('f8')" class="try" type="button" value="Try it!"></td>
+
+  </tr>
+  <tr>
+    <td><p class="p6"><span style="font-weight: bold;">9. </span>before() Method</p></td>
+    <td>Includes an Element previous element</td>
+    <td><input id="f9" onclick="changeColor('f9')" class="try" type="button" value="Try it!"></td>
+
+  </tr>
+  <tr>
+    <td><p class="p7"><span style="font-weight: bold;">10. </span>after() Method</p></td>
+    <td>Includes an Element</td>
+    <td><input id="f10" onclick="changeColor('f10')" class="try" type="button" value="Try it!"></td>
+
+  </tr>
+  <tr>
+    <td><p class="p8"><span style="font-weight: bold;">11. </span>Animation</p></td>
+    <td>Animation</td>
+    <td><input id="f11" onclick="changeColor('f11')" class="try" type="button" value="Try it!"></td>
+
+  </tr>
+  <tr>
+    <td>
+        <p><span style="font-weight: bold;">12. </span></p>
+        <div id="flip">Stop Sliding</div>
+        <div id="panel">Hello</div>
+    </td>
+    <td>Animation</td>
+    <td><input id="f12" onclick="changeColor('f12')" class="try" type="button" value="Try it!"></td>
+
+  </tr>
+  <tr>
+    <td>
+        <div>
+          <p><span style="font-weight: bold;">13. </span></p>
+            <div class="box" style="background:#b5f0e3;height:60px;width:60px; position:absolute;"></div>
+        </div>
+        <br>
+        <br>
+        <br>
+    </td>
+    <td>Animation</td>
+    <td><input id="f13" onclick="changeColor('f13')" class="try" type="button" value="Try it!"></td>
+
+  </tr>
+</table>
+
+
+
+</body>
+</html>

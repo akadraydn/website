@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+<title></title>
+
+<script>
+    let message = "<p>You have made the link with the mouse!</p>";
+    $(document).ready(function(){
+        $("a").mouseover(function(){
+            $('.main').append(message);
+        });
+        $('span.pq').each(function() {
+            var quote=$(this).clone();
+            quote.removeClass('pq');   
+            quote.addClass('pullquote');
+            $(this).before(quote);
+
+        });
+    });
+
+
+</script>
+
+</head>
+<body>
+
+    <p> Metin Metin Metin     <span class="pq"> Yigitcan</span>     Metin Metin Metin </p>
+    <p> Metin Metin Metin     <span> Dursun</span>     Metin Metin Metin </p>
+    <p> Metin Metin Metin     <span class="pq"> Kirklareli</span>     Metin Metin Metin </p>
+    <p> Metin Metin Metin     <span> University</span>     Metin Metin Metin  </p>
+    <a class= "menu" href="http://www.google.com"> Google </a>
+    <br>
+    <br>
+    <br>
+    <a href="https://stackoverflow.com"> Stack Overflow </a>
+    <br>
+    <br>
+    <br>
+    <p class="main"></p>
+
+
+
+</body>
+</html>

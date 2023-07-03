@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Task_1
+        var tablica = ["Kadir", "Yiğit", "Esma", "Cecilia",1,2,3,4,5];
+        //alert(tablica[0]);
+        tablica[tablica.length-1] = 'Selçuk';
+        document.write("Number of elements:" + tablica.length+ "<br>");
+        tablica[9] = 'Car';
+        document.write("Current number of elements:" + tablica.length + "<br>");
+        tablica[tablica.length] = 'Moya';
+        document.write("Current number of elements:" + tablica.length + "<br>");
+        tablica.push('Apple', 'Yellow', '89', 74);
+        document.write("Current number of elements:" + tablica.length + "<br>");
+        tablica.unshift('Dom', 'Studencki');
+        document.write("Current number of elements:" + tablica.length + "<br>");
+
+        //Task_2
+        var array = ["Desk","Pencil","Eraser","Chair","Pillow","Table","45",79,"12","15",false];
+        document.write('<p>First element to <strong>');
+        document.write(array[0] + '</strong></p>'); 
+        array.unshift('Blue');
+        document.write('<p>Current first element to <strong>');
+        document.write(array[0] + '</strong></p>');
+
+        
+        
+
+        </script> 
+        
+        <form id="myForm" action="/action_page.php">
+            First name: <input type="text" name="fname" value="Donald"><br>
+            Last name: <input type="text" name="lname" value="Duck"><br>
+            <input type="submit" value="Submit">
+          </form>
+          <p>Click the "Try it" button to return the number of elements in "myForm".</p>
+          <button onclick="myFunction()">Try it</button>
+          <h1 id="demo"></h1>
+          <script>
+          function myFunction() {
+            var x = document.getElementById("myForm").length;
+            document.getElementById("demo").innerHTML = x;
+          }
+          </script>
+          <div id="main-page">
+            <h2 id = "p1">John Doe</h2>
+            <h2 id = "p2">21</h2>
+            <button onclick="myFunction_Name()">Change the Name</button>
+            <button onclick="myFunction_Age()">Change the Age</button>
+          </div>
+          <script>
+            var x1 = document.getElementsByTagName("h2");
+            var arrx = ["jack","25"];
+            var i=0;
+            while (i<x1.length) {
+                x1[i].innerHTML = arrx[i];
+                i++;
+            }
+            i = 0;
+           
+            for (i = 0; i < x1.length; i++) {
+                x1[i].innerHTML = arrx[i];
+            }
+            
+            function myFunction_Name() {
+                document.getElementById("p1").innerHTML = "Yiğitcan";
+            }
+            function myFunction_Age() {
+                document.getElementById("p2").innerHTML = "32";
+            }
+           
+          </script>
+</body>
+
+</html>

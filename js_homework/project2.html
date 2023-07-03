@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+</head>
+<body>
+    <div class="panel">
+        <h1>Quiz Application Using JavaScript</h1>
+        <p class="question" id="ques"></p>
+        <input  id="answer"></input>
+        <p id="showMessage"></p>
+        <button onclick="checkAns()" id="btn">SUBMIT</button>
+        <button onclick="loadQuestions()" id="btn">Next Question</button>
+        <div id="score"></div>
+        <script>
+            var questions = [
+                ["How many days do we have in a week?",7],
+                ["How many colors are there in a rainbow?",7],
+                ["How many letters are there in the English alphabet?",26],
+                ["How many weeks are there in one year?",52],
+                ["How many bones does an adult human have?",206]
+            ];
+            var i = 1;
+            var y = 0;
+            var x = 0;
+            var score=0;
+            document.getElementById("ques").innerHTML = questions[0][0];
+            function loadQuestions() {
+                document.getElementById("ques").innerHTML = questions[i][0];  
+                if(i<questions.length){
+                    i++;
+                } 
+                document.getElementById('answer').value= "";
+                            
+            }
+            function checkAns() {
+
+                var answer = document.getElementById("answer").value;
+                if (answer == questions[x][1]) {
+                    alert('Correct answer!');
+                    score++;
+
+                } else {
+                    document.getElementById("showMessage").innerHTML = "The correct answer is : " + questions[x][1];
+                }
+                x++;
+                if(x==questions.length){
+                    var message = 'Liczba punktów: ' + score; 
+                    message += ' z ' + questions.length; 
+                    message += '.';
+                    document.write('<p>' + message + '</p>');
+                }
+            }
+        </script>
+    </div>
+
+</body>
+</html>
